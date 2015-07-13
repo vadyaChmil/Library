@@ -1,0 +1,6 @@
+create database library;
+
+use library;
+
+create table books (id int(5), autor varchar(20), 
+title varchar(35), year_edition int(4), pages int(4));
