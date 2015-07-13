@@ -13,10 +13,6 @@ public class HttpServletLibrary extends HttpServlet {
 	 * Vadya Zakusylo
 	 */
 	private static final long serialVersionUID = 1L;
-
-	public static final String DATA_PATH = "./resources/library_books.sql";
-	//when I work with my localhost //localhost/library
-
 	public static final String CONNECTION = "connection";
 	public static final String BOOKLIST = "booksList";
 	public static final String DOWNLOADED_BOOKLIST = "downloadedBooksList";
@@ -27,7 +23,7 @@ public class HttpServletLibrary extends HttpServlet {
 	public static final String SELECT_BOOKS_PAGE = "select_books.jsp";
 	public static final String INSERT_BOOKS_PAGE = "insert_books.jsp";
 	public static final String ERROR_PAGE = "error.jsp";
-
+	
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -40,7 +36,7 @@ public class HttpServletLibrary extends HttpServlet {
 		Connection connection = (Connection) request.getSession().getAttribute(CONNECTION);
 		if (connection == null) {
 			try {
-				connection = DriverManager.getConnection("jdbc:mysql:" + "DATA_PATH", "root",
+				connection = DriverManager.getConnection("jdbc:mysql://localhost/library", "root",
 						"root");
 				request.getSession().setAttribute(CONNECTION, connection);
 			} catch (SQLException e) {
