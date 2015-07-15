@@ -14,6 +14,7 @@ import vadya_zakusylo.library.model.Book;
 import vadya_zakusylo.library.model.dao.LibraryDao;
 import vadya_zakusylo.library.model.exception.SqlConnectionException;
 
+
 public class InsertBooks extends HttpServletLibrary {
 
 	/**

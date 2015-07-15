@@ -48,7 +48,7 @@ public class LibraryDaoMySqlTest {
 	public void shouldSetBookList_whenSomeBooks() throws SqlConnectionException {
 		// given
 		LibraryDaoMySql libraryDaoMySql = mock(LibraryDaoMySql.class);
-		List<Book> books = new ArrayList<Book>();
+		final List<Book> books = new ArrayList<Book>();
 		// when
 		books.add(new Book(0, null, null, 0, 0));
 		doAnswer(new Answer<Object>() {
