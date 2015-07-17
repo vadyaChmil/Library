@@ -40,7 +40,7 @@ public class HttpServletLibrary extends HttpServlet {
 		Connection connection = (Connection) request.getSession().getAttribute(CONNECTION);
 		if (connection == null) {
 			try {
-				connection = DriverManager.getConnection("jdbc:mysql://127.6.177.130:3306/vadya", USER_NAME, USER_PASSWORD);
+				connection = DriverManager.getConnection("jdbc:mysql://127.6.166.130:3306/vadya", USER_NAME, USER_PASSWORD);
 				request.getSession().setAttribute(CONNECTION, connection);
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
