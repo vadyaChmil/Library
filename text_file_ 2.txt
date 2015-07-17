@@ -1,3 +1,3 @@
 10001;Joshua Bloch;Effective Java;2010;385
-12340;Conan Doyle;Sherlock Holmes;2013;678
-95657;Johann Goethe;Faust;1995;695
+;12340;Conan Doyle;Sherlock Holmes;2013;678
+;95657;Johann Goethe;Faust;1995;695
