@@ -1,4 +1,9 @@
 <%@ page isErrorPage="true"%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Error page</title>
+</head>
 
 <body background="images/stone.jpg">
 	<table width="100%" height="100%" border="0">
