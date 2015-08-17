@@ -23,7 +23,9 @@
 			<td>
 				<center>
 					<p>
-						<b><a href="index.html">Home page</a></b> / <b><a href="download.html">Download books</a></b>
+						<b><a href="index.html">Home page</a></b> 
+						/ 
+						<b><a href="upload.html">Upload books</a></b>
 					</p>
 				</center>
 			</td>
@@ -38,7 +40,7 @@
 			<th> Year Edition </th>
 			<th> Pages </th>
 		</tr>
-	<c:forEach items="${booksList}" var="book">
+	<c:forEach items="${bookList}" var="book">
 		<tr>
 			<td>
 				<c:out value="${book.bookId}" />

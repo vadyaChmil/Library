@@ -1,17 +1,18 @@
 package vadya_zakusylo.library.model.exception;
 
-public class SqlConnectionException extends Exception {
+public class UploadException extends Exception {
 
 	/**
 	 * Vadya Zakusylo
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public SqlConnectionException() {
+	public UploadException() {
 		super();
 	}
 
-	public SqlConnectionException(String message) {
+	public UploadException(String message) {
 		super(message);
 	}
+
 }

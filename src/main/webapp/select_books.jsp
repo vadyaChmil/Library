@@ -10,7 +10,7 @@
 </head>
 
 <body background="images/stone.jpg">
-<form action="insert_books" method="GET" name="insert">
+<form action="upload_books" method="GET" name="upload">
 
 	<table width="80%" height="75" border="0" align="center">
 	
@@ -34,7 +34,7 @@
 	</table>
 	
 	<table width="70%" height="75" border="0" align="center">
-		<c:if test="${fn:length(downloadedBooksList) gt 0}">
+		<c:if test="${fn:length(uploadBookList) gt 0}">
 			<tr>
 				<th> Bok ID </th>
 				<th> Autor </th>
@@ -42,7 +42,7 @@
 				<th> Year Edition </th>
 				<th> Pages </th>
 			</tr>
-			<c:forEach items="${downloadedBooksList}" var="book">
+			<c:forEach items="${uploadBookList}" var="book">
 				<tr>
 					<td>
 						<label><input type="Checkbox" name="bookId" value="${book.bookId}" checked>
@@ -66,11 +66,11 @@
 		</c:if>
 		<tr>
 			<td colspan="5">
-				<c:if test="${fn:length(downloadedBooksList) gt 0}">
-   					<p>Uncheck book if don't want to download it to library</p>
+				<c:if test="${fn:length(uploadBookList) gt 0}">
+   					<p>Uncheck book if don't want to upload it to library</p>
    					<p><input type="Submit" name="submit" value="Send"></p>
 				</c:if>
-				<c:if test="${fn:length(downloadedBooksList) lt 1}">
+				<c:if test="${fn:length(uploadBookList) lt 1}">
 			   		<p>Document is empty or you haven't chosen the document.</p>
 				</c:if>
 			<td>

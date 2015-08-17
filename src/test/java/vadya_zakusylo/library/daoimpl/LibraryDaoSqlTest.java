@@ -5,6 +5,7 @@ import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,15 +16,14 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
 import vadya_zakusylo.library.model.Book;
-import vadya_zakusylo.library.model.exception.SqlConnectionException;
 
-public class LibraryDaoMySqlTest {
-	static LibraryDaoMySql libraryDaoMySql;
+public class LibraryDaoSqlTest {
+	static LibraryDaoSql libraryDaoMySql;
 	static Connection connection;
 
 	@BeforeClass
 	public static void oneTimeSetUp() {
-		libraryDaoMySql = new LibraryDaoMySql(connection);
+		libraryDaoMySql = new LibraryDaoSql(connection);
 	}
 
 	@AfterClass
@@ -39,15 +39,14 @@ public class LibraryDaoMySqlTest {
 
 	@Test
 	public void testCreateCommandInsertBook() {
-		assertEquals(
-				"insert into books (id, autor, title, year_edition, pages) values (?,?,?,?,?);",
+		assertEquals("insert into books (id, autor, title, year_edition, pages) values (?,?,?,?,?);",
 				libraryDaoMySql.createCommandInsertBook());
 	}
 
 	@Test
-	public void shouldSetBookList_whenSomeBooks() throws SqlConnectionException {
+	public void shouldSetBookList_whenSomeBooks() throws SQLException {
 		// given
-		LibraryDaoMySql libraryDaoMySql = mock(LibraryDaoMySql.class);
+		LibraryDaoSql libraryDaoMySql = mock(LibraryDaoSql.class);
 		final List<Book> books = new ArrayList<Book>();
 		// when
 		books.add(new Book(0, null, null, 0, 0));
@@ -56,16 +55,16 @@ public class LibraryDaoMySqlTest {
 				countCallMethodInsertBook(books.size());
 				return null;
 			}
-		}).when(libraryDaoMySql).setBookList(books);
+		}).when(libraryDaoMySql).addBookList(books);
 		// then
-		libraryDaoMySql.setBookList(books);
+		libraryDaoMySql.addBookList(books);
 		assertEquals(countCallMethodInsertBook, 1);
 
 		// when
 		books.add(new Book(0, null, null, 0, 0));
 		books.add(new Book(0, null, null, 0, 0));
 		// then
-		libraryDaoMySql.setBookList(books);
+		libraryDaoMySql.addBookList(books);
 		assertEquals(countCallMethodInsertBook, 3);
 	}
 

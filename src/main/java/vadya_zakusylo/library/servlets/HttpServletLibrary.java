@@ -18,14 +18,14 @@ public class HttpServletLibrary extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public static final String CONNECTION = "connection";
-	public static final String BOOKLIST = "booksList";
-	public static final String DOWNLOADED_BOOKLIST = "downloadedBooksList";
+	public static final String BOOKLIST = "bookList";
+	public static final String UPLOAD_BOOKLIST = "uploadBookList";
 	public static final String MESSAGE = "message";
 	public static final String ERROR_MESSAGE = "errorMessage";
 
 	public static final String LIBRARY_PAGE = "library.jsp";
+	public static final String UPLOAD_BOOKS_PAGE = "upload_books.jsp";
 	public static final String SELECT_BOOKS_PAGE = "select_books.jsp";
-	public static final String INSERT_BOOKS_PAGE = "insert_books.jsp";
 	public static final String ERROR_PAGE = "error.jsp";
 
 	Connection getConnection(HttpServletRequest request) {

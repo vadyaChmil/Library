@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import vadya_zakusylo.library.model.Book;
 import vadya_zakusylo.library.model.exception.DataFormatException;
 import vadya_zakusylo.library.model.exception.DataSizeException;
-import vadya_zakusylo.library.model.exception.DownloadException;
+import vadya_zakusylo.library.model.exception.UploadException;
 
 public class BooksDaoBrowser {
 
-	public List<Book> downloadBooks(HttpServletRequest request, HttpServletResponse response)
-			throws DataFormatException, DownloadException, DataSizeException {
+	public List<Book> uploadBooks(HttpServletRequest request, HttpServletResponse response)
+			throws DataFormatException, UploadException, DataSizeException {
 		try {
 			String fileContent = parseBrowserInputStreamToString(request, response);
 			List<String> elementsOfBook = parseStringToList(fileContent);
@@ -26,7 +26,7 @@ public class BooksDaoBrowser {
 		} catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
 			throw new DataFormatException("Incorrect data in the downloaded file");
 		} catch (IOException e) {
-			throw new DownloadException("Problem with downloading file");
+			throw new UploadException("Problem with uploading file");
 		}
 	}
 
@@ -178,15 +178,15 @@ public class BooksDaoBrowser {
 	}
 
 	List<Book> createBookList(List<String> contentString) throws NumberFormatException, IndexOutOfBoundsException {
-		List<Book> downloadBookList = new ArrayList<Book>();
+		List<Book> uploadBookList = new ArrayList<Book>();
 		for (int index = 0; index < contentString.size(); index++) {
 			int id = Integer.parseInt(contentString.get(index));
 			String bookAutor = contentString.get(++index);
 			String bookTitle = contentString.get(++index);
 			int yearEdition = Integer.parseInt(contentString.get(++index));
 			int pages = Integer.parseInt(contentString.get(++index));
-			downloadBookList.add(new Book(id, bookAutor, bookTitle, yearEdition, pages));
+			uploadBookList.add(new Book(id, bookAutor, bookTitle, yearEdition, pages));
 		}
-		return downloadBookList;
+		return uploadBookList;
 	}
 }

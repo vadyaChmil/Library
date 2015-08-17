@@ -11,7 +11,7 @@ import vadya_zakusylo.library.daoimpl.BooksDaoBrowser;
 import vadya_zakusylo.library.model.Book;
 import vadya_zakusylo.library.model.exception.DataFormatException;
 import vadya_zakusylo.library.model.exception.DataSizeException;
-import vadya_zakusylo.library.model.exception.DownloadException;
+import vadya_zakusylo.library.model.exception.UploadException;
 
 public class SelectBooksServlet extends HttpServletLibrary {
 
@@ -26,10 +26,10 @@ public class SelectBooksServlet extends HttpServletLibrary {
 
 		BooksDaoBrowser booksDaoBrowser = new BooksDaoBrowser();
 		try {
-			List<Book> downloadedBooksList = booksDaoBrowser.downloadBooks(request, response);
-			request.getSession().setAttribute(DOWNLOADED_BOOKLIST, downloadedBooksList);
+			List<Book> uploadedBookList = booksDaoBrowser.uploadBooks(request, response);
+			request.getSession().setAttribute(UPLOAD_BOOKLIST, uploadedBookList);
 			request.getRequestDispatcher(SELECT_BOOKS_PAGE).forward(request, response);
-		} catch (DataFormatException | DownloadException | DataSizeException e) {
+		} catch (DataFormatException | UploadException | DataSizeException e) {
 			String errorMessage = e.getMessage();
 			request.setAttribute(ERROR_MESSAGE, errorMessage);
 			request.getRequestDispatcher(ERROR_PAGE).forward(request, response);

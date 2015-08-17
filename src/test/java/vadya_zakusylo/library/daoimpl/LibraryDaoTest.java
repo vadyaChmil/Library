@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,6 @@ import org.junit.Test;
 
 import vadya_zakusylo.library.model.Book;
 import vadya_zakusylo.library.model.dao.LibraryDao;
-import vadya_zakusylo.library.model.exception.SqlConnectionException;
 
 public class LibraryDaoTest {
 	LibraryDao libraryDao;
@@ -32,25 +32,25 @@ public class LibraryDaoTest {
 		bookList = null;
 	}
 
-	@Test(expected = SqlConnectionException.class)
-	public void shouldGetBookList_whenResourceNotExist() throws SqlConnectionException {
+	@Test(expected = SQLException.class)
+	public void shouldGetBookList_whenResourceNotExist() throws SQLException {
 		// when
-		when(libraryDao.getBookList()).thenThrow(new SqlConnectionException());
+		when(libraryDao.getBookList()).thenThrow(new SQLException());
 		// then
 		libraryDao.getBookList();
 	}
 
 	@Test
-	public void shouldGetBookList_whenBooksNotExist() throws SqlConnectionException {
+	public void shouldGetBookList_whenBooksNotExist() throws SQLException {
 		// when
 		when(libraryDao.getBookList()).thenReturn(bookList);
-		bookList=null;
+		bookList = null;
 		// then
 		assertTrue(libraryDao.getBookList().size() == 0);
 	}
 
 	@Test
-	public void shouldGetBookList_whenOneBook() throws SqlConnectionException {
+	public void shouldGetBookList_whenOneBook() throws SQLException {
 		// when
 		when(libraryDao.getBookList()).thenReturn(bookList);
 		assertEquals(0, libraryDao.getBookList().size());
@@ -60,7 +60,7 @@ public class LibraryDaoTest {
 	}
 
 	@Test
-	public void shouldGetBookList_whenTwoBooks() throws SqlConnectionException {
+	public void shouldGetBookList_whenTwoBooks() throws SQLException {
 		// when
 		when(libraryDao.getBookList()).thenReturn(bookList);
 		assertEquals(0, libraryDao.getBookList().size());

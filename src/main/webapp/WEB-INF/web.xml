@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 						http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
@@ -13,13 +12,14 @@
 		<servlet-name>Library</servlet-name>
 		<servlet-class>vadya_zakusylo.library.servlets.LibraryServlet</servlet-class>
 	</servlet>
+
+	<servlet>
+		<servlet-name>UploadBooks</servlet-name>
+		<servlet-class>vadya_zakusylo.library.servlets.UploadBooks</servlet-class>
+	</servlet>
 	<servlet>
 		<servlet-name>SelectBooks</servlet-name>
 		<servlet-class>vadya_zakusylo.library.servlets.SelectBooksServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>InsertBooks</servlet-name>
-		<servlet-class>vadya_zakusylo.library.servlets.InsertBooks</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -27,12 +27,12 @@
 		<url-pattern>/library</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>SelectBooks</servlet-name>
-		<url-pattern>/select_books</url-pattern>
+		<servlet-name>UploadBooks</servlet-name>
+		<url-pattern>/upload_books</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>InsertBooks</servlet-name>
-		<url-pattern>/insert_books</url-pattern>
+		<servlet-name>SelectBooks</servlet-name>
+		<url-pattern>/select_books</url-pattern>
 	</servlet-mapping>
 
 	<session-config>
