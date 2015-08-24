@@ -24,7 +24,7 @@ public class BooksDaoBrowser {
 			List<Book> booksList = createBookList(elementsOfBook);
 			return booksList;
 		} catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-			throw new DataFormatException("Incorrect data in the downloaded file");
+			throw new DataFormatException("Incorrect data in the uploaded file");
 		} catch (IOException e) {
 			throw new UploadException("Problem with uploading file");
 		}

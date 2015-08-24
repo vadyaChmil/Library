@@ -15,6 +15,7 @@ import org.junit.Test;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
+import vadya_zakusylo.library.daoimpl.LibraryDaoSql;
 import vadya_zakusylo.library.model.Book;
 
 public class LibraryDaoSqlTest {

@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import vadya_zakusylo.library.daoimpl.BooksDaoBrowser;
 import vadya_zakusylo.library.model.Book;
 
 public class BooksDaoIOTest {
